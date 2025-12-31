@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -17,9 +18,10 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// ✅ Fixed dashboard route: points to DashboardController@index
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -28,7 +30,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('clients', ClientController::class)->middleware(['auth', 'verified']);
-Route::resource('invoices', InvoiceController::class)->middleware(['auth', 'verified']);
 Route::resource('invoices', InvoiceController::class)->middleware(['auth', 'verified']);
 Route::resource('products', ProductController::class)->middleware(['auth', 'verified']);
 

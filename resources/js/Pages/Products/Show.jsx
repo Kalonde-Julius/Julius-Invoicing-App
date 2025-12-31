@@ -32,7 +32,7 @@ export default function Show({ product }) {
           <h1 className="text-2xl font-bold text-gray-800">{product.name}</h1>
           <p className="text-gray-600">{product.description}</p>
           <p className="text-xl font-semibold text-indigo-600">
-            ${parseFloat(product.price).toFixed(2)}
+            UGX {parseFloat(product.price).toFixed(0)}/=
           </p>
 
           {/* Actions */}

@@ -43,12 +43,13 @@ export default function Show() {
     <div className="max-w-5xl mx-auto p-8 bg-white shadow-xl rounded-lg">
 
         <Head title={`Invoice #${invoice.invoice_number}`} />
-        
+
       {/* Header */}
       <div className="flex justify-between items-center mb-6 no-print">
         <h1 className="text-3xl font-bold text-indigo-700">
           Invoice #{invoice.invoice_number}
         </h1>
+        
         <div className="flex gap-2">
           <Link href="/invoices"
             className="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300">

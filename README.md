@@ -9,6 +9,6 @@
 
 To run this web app, run the following commands via cmd:
 
-composer update
-npm update
+composer update <br/>
+npm update <br/>
 php artisan migrate:fresh

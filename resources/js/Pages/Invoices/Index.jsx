@@ -52,19 +52,25 @@ export default function Index() {
           >
             {/* Header */}
             <div className="flex justify-between items-center bg-gray-50 px-6 py-4">
-              <div>
+              <div className='grid grid-cols-2'>
                 <h2 className="text-lg font-semibold text-gray-800">
                   Invoice #{invoice.invoice_number}
                 </h2>
                 <p className="text-md font-semibold text-gray-500">
-                  {invoice.client_name} <br/>
                    {formatDate(invoice.invoice_date)}
                 </p>
               </div>
+
+              <div>
+                <p className="text-md font-semibold text-gray-500">
+                    {invoice.client_name}
+                </p>
+              </div>
+
               <div className="text-right">
                 <p className="text-md font-semibold text-left text-gray-500">Grand Total:</p>
                 <p className="text-xl font-bold text-indigo-600">
-                 UGX {formatNumber(invoice.grand_total)}/=
+                 UGX{formatNumber(invoice.grand_total)}/=
                 </p>
               </div>
             </div>
@@ -74,17 +80,19 @@ export default function Index() {
               <h3 className="font-semibold text-indigo-600 mb-2">Items</h3>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm border border-gray-200 rounded">
+
                   <thead className="bg-gray-100">
                     <tr>
                       <th className="p-2 text-left">Product</th>
-                      <th className="p-2 text-right">Unit Price</th>
-                      <th className="p-2 text-center">Qty</th>
-                      <th className="p-2 text-center">Discount %</th>
-                      <th className="p-2 text-center">Tax %</th>
-                      <th className="p-2 text-right">Subtotal</th>
-                      <th className="p-2 text-right">Total</th>
+                      <th className="p-2 text-right">Unit Price (UGX) </th>
+                      <th className="p-2 text-center">Qty (KG) </th>
+                      <th className="p-2 text-center">Discount (%)</th>
+                      <th className="p-2 text-center">Tax (%)</th>
+                      <th className="p-2 text-right">Subtotal (UGX) </th>
+                      <th className="p-2 text-right">Total (UGX) </th>
                     </tr>
                   </thead>
+
                   <tbody>
                     {invoice.items.map((item) => (
                       <tr key={item.id} className="border-t">
@@ -105,13 +113,39 @@ export default function Index() {
                     ))}
                   </tbody>
                 </table>
+
+                <section className="mt-5">
+
+                    <h2 className="text-lg font-semibold mb-2 text-indigo-600"> Additional Info </h2>
+
+                <article className='grid grid-cols-4 gap-4'>
+                    <div>
+                        <p className="mt-1 text-gray-600 whitespace-pre-wrap">
+                          Driver:  {invoice.driver || 'N/A'}
+                        </p>
+                    </div>
+
+                    <div>
+                        <p className="mt-1 text-gray-600 whitespace-pre-wrap">
+                          Vehicle:  {invoice.vehicle || 'N/A'}
+                        </p>
+                    </div>
+
+                    <div>
+                        <p className="mt-1 text-gray-600 whitespace-pre-wrap">
+                          Notes:  {invoice.notes || 'N/A'}
+                        </p>
+                    </div>
+
+                </article>
+                </section>
+
               </div>
             </div>
 
             {/* Actions */}
             <div className="flex justify-end gap-3 bg-gray-50 px-6 py-3">
-              <Link
-                href={`/invoices/${invoice.id}`}
+              <Link href={`/invoices/${invoice.id}`}
                 className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 hover:bg-indigo-200 transition"
                 title="View Invoice"
               >
@@ -124,8 +158,7 @@ export default function Index() {
               >
                 <FaPen />
               </Link>
-              <button
-                onClick={() => {
+              <button onClick={() => {
                   if (confirm('Are you sure you want to delete this invoice?')) {
                     router.delete(`/invoices/${invoice.id}`);
                   }

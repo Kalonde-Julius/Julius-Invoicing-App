@@ -14,6 +14,9 @@ return new class extends Migration {
             $table->string('invoice_number')->unique();
             $table->string('client_name'); // ✅ store client name directly
             $table->date('invoice_date');
+            $table->string('driver');
+            $table->string('vehicle');
+            $table->string('notes');
             $table->decimal('grand_total', 12, 0); // overall invoice total
             $table->timestamps();
         });

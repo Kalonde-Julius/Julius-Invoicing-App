@@ -35,11 +35,14 @@ class InvoiceController extends Controller
 
     // Store a newly created invoice.
     public function store(Request $request) {
-        
+
         $validated = $request->validate([
             'invoice_number' => 'required|unique:invoices',
             'client_name'    => 'required|string|max:255',
             'invoice_date'   => 'required|date',
+            'driver'        => 'required|string|max:255',
+            'vehicle'        => 'required|string|max:255',
+            'notes'        => 'required|string|max:255',
             'grand_total'    => 'required|numeric|min:0',
             'items'          => 'required|array|min:1',
             'items.*.product_id' => 'required|exists:products,id',
@@ -51,12 +54,15 @@ class InvoiceController extends Controller
             'items.*.total'      => 'required|numeric|min:0',
         ]);
 
-        DB::transaction(function () use ($validated) {
+       DB::transaction(function () use ($validated) {
             $invoice = Invoice::create([
                 'invoice_number' => $validated['invoice_number'],
-                'client_name'    => $validated['client_name'],
-                'invoice_date'   => $validated['invoice_date'],
-                'grand_total'    => $validated['grand_total'],
+                'client_name' => $validated['client_name'],
+                'invoice_date' => $validated['invoice_date'],
+                'driver' => $validated['driver'],
+                'vehicle' => $validated['vehicle'],
+                'notes' => $validated['notes'],
+                'grand_total' => $validated['grand_total'],
             ]);
 
             foreach ($validated['items'] as $item) {
@@ -104,6 +110,9 @@ class InvoiceController extends Controller
             'invoice_number' => 'required|unique:invoices,invoice_number,' . $invoice->id,
             'client_name'    => 'required|string|max:255',
             'invoice_date'   => 'required|date',
+            'driver'        => 'required|string|max:255',
+            'vehicle'        => 'required|string|max:255',
+            'notes'        => 'required|string|max:255',
             'grand_total'    => 'required|numeric|min:0',
             'items'          => 'required|array|min:1',
             'items.*.product_id' => 'required|exists:products,id',
@@ -118,9 +127,12 @@ class InvoiceController extends Controller
         DB::transaction(function () use ($validated, $invoice) {
             $invoice->update([
                 'invoice_number' => $validated['invoice_number'],
-                'client_name'    => $validated['client_name'],
-                'invoice_date'   => $validated['invoice_date'],
-                'grand_total'    => $validated['grand_total'],
+                'client_name' => $validated['client_name'],
+                'invoice_date' => $validated['invoice_date'],
+                'driver' => $validated['driver'],
+                'vehicle' => $validated['vehicle'],
+                'notes' => $validated['notes'],
+                'grand_total' => $validated['grand_total'],
             ]);
 
             // Replace items

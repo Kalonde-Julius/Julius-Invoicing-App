@@ -94,7 +94,7 @@ export default function Edit({ invoice, clients = [], products = [] }) {
             />
             {errors.invoice_date && <div className="text-red-500">{errors.invoice_date}</div>}
           </div>
-        </div>
+
 
         {/* Client Dropdown */}
         <div>
@@ -119,6 +119,39 @@ export default function Edit({ invoice, clients = [], products = [] }) {
         {errors.client_name && <div className="text-red-500">{errors.client_name}</div>}
         </div>
 
+
+        <div>
+            <label className="block font-medium">Driver</label>
+            <input
+                type="text"
+                value={data.driver}
+                onChange={(e) => setData('driver', e.target.value)}
+                className="border rounded w-full p-2"
+            />
+            {errors.driver && <div className="text-red-500">{errors.driver}</div>}
+        </div>
+
+            <div>
+                <label className="block font-medium">Vehicle</label>
+                <input
+                    type="text"
+                    value={data.vehicle}
+                    onChange={(e) => setData('vehicle', e.target.value)}
+                    className="border rounded w-full p-2"
+                />
+                {errors.vehicle && <div className="text-red-500">{errors.vehicle}</div>}
+            </div>
+
+            <div>
+                <label className="block font-medium">Additional Notes</label>
+                <textarea value={data.notes}
+                    onChange={(e) => setData('notes', e.target.value)}
+                    className="border rounded w-full p-2"
+                ></textarea>
+                {errors.notes && <div className="text-red-500">{errors.notes}</div>}
+            </div>
+
+        </div>
 
         {/* Invoice Details Table */}
         <div>

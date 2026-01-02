@@ -14,8 +14,8 @@ export default function Dashboard({ stats = {} }) {
   return (
     <AuthenticatedLayout
       header={
-        <h2 className="text-2xl font-bold leading-tight text-gray-800">
-          Dashboard
+        <h2 className="text-3xl font-bold text-center leading-tight text-gray-800 bg-cyan-400">
+          Julius Invoicing App
         </h2>
       }
     >
@@ -23,14 +23,6 @@ export default function Dashboard({ stats = {} }) {
 
       <div className="py-12">
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-
-          {/* Welcome Banner */}
-          <div className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg shadow p-6 mb-8">
-            <h1 className="text-3xl font-semibold"> Welcome Back 👋</h1>
-                <p className="mt-2 text-indigo-100">
-                     Manage your products, clients, & invoices below.
-                </p>
-          </div>
 
           {/* Stats Section */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">

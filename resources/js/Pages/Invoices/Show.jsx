@@ -49,7 +49,7 @@ export default function Show() {
         <h1 className="text-3xl font-bold text-indigo-700">
           Invoice #{invoice.invoice_number}
         </h1>
-        
+
         <div className="flex gap-2">
           <Link href="/invoices"
             className="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300">
@@ -85,17 +85,20 @@ export default function Show() {
       {/* Invoice Details */}
       <div className="grid grid-cols-3 gap-6 mb-6">
         <div className="p-4 border rounded-lg bg-gray-50">
-          <h2 className="text-sm font-semibold text-gray-600">Invoice Number</h2>
-          <p className="text-lg font-bold text-gray-800">#{invoice.invoice_number}-</p>
+          <p className="text-lg font-semibold text-gray-800">
+            Invoice No: #{invoice.invoice_number}-
+          </p>
         </div>
+
         <div className="p-4 border rounded-lg bg-gray-50">
-          <h2 className="text-sm font-semibold text-gray-600">Client</h2>
-          <p className="text-lg font-bold text-gray-800">{invoice.client_name}</p>
+          <p className="text-lg font-semibold text-gray-800">
+            Date: {formatDateWithOrdinal(invoice.invoice_date)}
+          </p>
         </div>
+
         <div className="p-4 border rounded-lg bg-gray-50">
-          <h2 className="text-sm font-semibold text-gray-600">Date</h2>
-          <p className="text-lg font-bold text-gray-800">
-            {formatDateWithOrdinal(invoice.invoice_date)}
+          <p className="text-lg font-semibold text-gray-800">
+            Client: {invoice.client_name}
           </p>
         </div>
       </div>
@@ -115,6 +118,7 @@ export default function Show() {
               <th className="border p-2 text-right">Total (UGX)</th>
             </tr>
           </thead>
+
           <tbody>
             {invoice.items.map((item) => (
               <tr key={item.id} className="hover:bg-gray-50">
@@ -137,9 +141,35 @@ export default function Show() {
       <div className="flex justify-end items-center border-t pt-4">
         <span className="text-xl font-bold text-indigo-700 mr-4">Grand Total:</span>
         <span className="text-2xl font-bold text-gray-900">
-          UGX {formatNumber(invoice.grand_total)}/=
+          UGX{formatNumber(invoice.grand_total)}/=
         </span>
       </div>
+
+      <section className="mt-5 mb-2">
+
+        <h2 className="text-lg font-semibold mb-2 text-indigo-600"> Additional Info: </h2>
+
+        <article className='grid grid-cols-4 gap-4'>
+        <div>
+            <p className="mt-1 text-gray-600 whitespace-pre-wrap">
+                Driver:  {invoice.driver || 'N/A'}
+            </p>
+        </div>
+
+        <div>
+            <p className="mt-1 text-gray-600 whitespace-pre-wrap">
+                Vehicle:  {invoice.vehicle || 'N/A'}
+            </p>
+        </div>
+
+        <div>
+            <p className="mt-1 text-gray-600 whitespace-pre-wrap">
+                Notes:  {invoice.notes || 'N/A'}
+            </p>
+        </div>
+
+        </article>
+    </section>
 
       {/* Footer */}
       <p className="text-center text-gray-500 mt-6">

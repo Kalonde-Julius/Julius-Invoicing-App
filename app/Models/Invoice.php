@@ -10,6 +10,9 @@ class Invoice extends Model {
         'invoice_number',
         'client_name', // ✅ now storing client_name directly
         'invoice_date',
+        'driver',
+        'vehicle',
+        'notes',
         'grand_total',
     ];
 

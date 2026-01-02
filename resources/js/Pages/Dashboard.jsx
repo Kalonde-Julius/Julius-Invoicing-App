@@ -14,7 +14,7 @@ export default function Dashboard({ stats = {} }) {
   return (
     <AuthenticatedLayout
       header={
-        <h2 className="text-3xl font-bold text-center leading-tight text-gray-800 bg-cyan-400">
+        <h2 className="text-3xl font-bold text-center leading-tight text-cyan-500">
           Julius Invoicing App
         </h2>
       }
@@ -27,53 +27,54 @@ export default function Dashboard({ stats = {} }) {
           {/* Stats Section */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="bg-white shadow rounded-lg p-6 text-center">
-              <CubeIcon className="h-10 w-10 text-indigo-600 mx-auto mb-2" />
+              <CubeIcon className="h-10 w-10 text-indigo-500 mx-auto mb-2" />
               <h3 className="text-lg font-semibold text-gray-800"> Products </h3>
-              <p className="text-3xl font-bold text-indigo-600">{products}</p>
+              <p className="text-3xl font-bold text-indigo-500">{products}</p>
               <p className="text-gray-500 text-sm">Total Products</p>
             </div>
 
             <div className="bg-white shadow rounded-lg p-6 text-center">
-              <UserGroupIcon className="h-10 w-10 text-indigo-600 mx-auto mb-2" />
+              <UserGroupIcon className="h-10 w-10 text-indigo-500 mx-auto mb-2" />
               <h3 className="text-lg font-semibold text-gray-800">Clients</h3>
-              <p className="text-3xl font-bold text-indigo-600">{clients}</p>
+              <p className="text-3xl font-bold text-indigo-500">{clients}</p>
               <p className="text-gray-500 text-sm">Registered Clients</p>
             </div>
 
             <div className="bg-white shadow rounded-lg p-6 text-center">
-              <DocumentTextIcon className="h-10 w-10 text-indigo-600 mx-auto mb-2" />
+              <DocumentTextIcon className="h-10 w-10 text-indigo-500 mx-auto mb-2" />
               <h3 className="text-lg font-semibold text-gray-800">Invoices</h3>
-              <p className="text-3xl font-bold text-indigo-600">{invoices}</p>
+              <p className="text-3xl font-bold text-indigo-500">{invoices}</p>
               <p className="text-gray-500 text-sm">Issued Invoices</p>
             </div>
           </div>
 
           {/* Quick Links Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Link
-              href="/products"
+            <Link href="/products"
               className="bg-white shadow hover:shadow-lg transition rounded-lg p-6 flex flex-col items-center text-center"
             >
-              <CubeIcon className="h-12 w-12 text-indigo-600 mb-4" />
+                <CubeIcon className="h-12 w-12 text-indigo-500 mb-4" />
+
               <h3 className="text-lg font-semibold text-gray-800">Products</h3>
+
               <p className="text-gray-500 text-sm mt-2">
                 Manage your product catalog & pricing.
               </p>
             </Link>
 
-            <Link
-              href="/clients"
+            <Link href="/clients"
               className="bg-white shadow hover:shadow-lg transition rounded-lg p-6 flex flex-col items-center text-center"
             >
-              <UserGroupIcon className="h-12 w-12 text-indigo-600 mb-4" />
+              <UserGroupIcon className="h-12 w-12 text-indigo-500 mb-4" />
               <h3 className="text-lg font-semibold text-gray-800">Clients</h3>
               <p className="text-gray-500 text-sm mt-2">
                 View & manage your client information.
               </p>
             </Link>
 
-            <Link href="/invoices" className="bg-white shadow hover:shadow-lg transition rounded-lg p-6 flex flex-col items-center text-center">
-                <DocumentTextIcon className="h-12 w-12 text-indigo-600 mb-4" />
+            <Link href="/invoices"
+                className="bg-white shadow hover:shadow-lg transition rounded-lg p-6 flex flex-col items-center text-center">
+                <DocumentTextIcon className="h-12 w-12 text-indigo-500 mb-4" />
                 <h3 className="text-lg font-semibold text-gray-800">Invoices</h3>
                 <p className="text-gray-500 text-sm mt-2">
                     Track & manage invoices efficiently.

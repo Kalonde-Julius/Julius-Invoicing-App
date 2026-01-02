@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, usePage, router, Head } from '@inertiajs/react';
 import { FaPrint, FaTachometerAlt } from 'react-icons/fa';
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 
 export default function Show() {
   const { invoice } = usePage().props;
@@ -40,7 +41,14 @@ export default function Show() {
   };
 
   return (
+
     <div className="max-w-5xl mx-auto p-8 bg-white shadow-xl rounded-lg">
+
+        <div className='mb-3'>
+            <h2 className="text-3xl font-bold text-center leading-tight text-black">
+                Julius Invoicing App
+            </h2>
+        </div>
 
         <Head title={`Invoice #${invoice.invoice_number}`} />
 

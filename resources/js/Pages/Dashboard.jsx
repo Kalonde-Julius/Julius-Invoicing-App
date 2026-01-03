@@ -5,11 +5,7 @@ import { CubeIcon, UserGroupIcon, DocumentTextIcon } from '@heroicons/react/24/o
 
 export default function Dashboard({ stats = {} }) {
   // Provide defaults to avoid crashes
-  const {
-    products = 0,
-    clients = 0,
-    invoices = 0,
-  } = stats;
+  const { products = 0, clients = 0, invoices = 0,  } = stats;
 
   return (
     <AuthenticatedLayout
@@ -21,7 +17,7 @@ export default function Dashboard({ stats = {} }) {
     >
       <Head title="Dashboard" />
 
-      <div className="py-12">
+      <div className="py-5">
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
 
           {/* Stats Section */}
@@ -42,9 +38,9 @@ export default function Dashboard({ stats = {} }) {
 
             <div className="bg-white shadow rounded-lg p-6 text-center">
               <DocumentTextIcon className="h-10 w-10 text-indigo-500 mx-auto mb-2" />
-              <h3 className="text-lg font-semibold text-gray-800">Invoices</h3>
+              <h3 className="text-lg font-semibold text-gray-800"> Invoices </h3>
               <p className="text-3xl font-bold text-indigo-500">{invoices}</p>
-              <p className="text-gray-500 text-sm">Issued Invoices</p>
+              <p className="text-gray-500 text-sm"> Issued Invoices </p>
             </div>
           </div>
 
@@ -53,9 +49,9 @@ export default function Dashboard({ stats = {} }) {
             <Link href="/products"
               className="bg-white shadow hover:shadow-lg transition rounded-lg p-6 flex flex-col items-center text-center"
             >
-                <CubeIcon className="h-12 w-12 text-indigo-500 mb-4" />
+                <CubeIcon className="h-12 w-12 text-indigo-500 mb-4"/>
 
-              <h3 className="text-lg font-semibold text-gray-800">Products</h3>
+              <h3 className="text-lg font-semibold text-gray-800"> Products </h3>
 
               <p className="text-gray-500 text-sm mt-2">
                 Manage your product catalog & pricing.
@@ -66,7 +62,9 @@ export default function Dashboard({ stats = {} }) {
               className="bg-white shadow hover:shadow-lg transition rounded-lg p-6 flex flex-col items-center text-center"
             >
               <UserGroupIcon className="h-12 w-12 text-indigo-500 mb-4" />
-              <h3 className="text-lg font-semibold text-gray-800">Clients</h3>
+
+              <h3 className="text-lg font-semibold text-gray-800"> Clients </h3>
+
               <p className="text-gray-500 text-sm mt-2">
                 View & manage your client information.
               </p>
@@ -74,13 +72,17 @@ export default function Dashboard({ stats = {} }) {
 
             <Link href="/invoices"
                 className="bg-white shadow hover:shadow-lg transition rounded-lg p-6 flex flex-col items-center text-center">
+
                 <DocumentTextIcon className="h-12 w-12 text-indigo-500 mb-4" />
-                <h3 className="text-lg font-semibold text-gray-800">Invoices</h3>
+
+                <h3 className="text-lg font-semibold text-gray-800"> Invoices </h3>
+
                 <p className="text-gray-500 text-sm mt-2">
                     Track & manage invoices efficiently.
                 </p>
             </Link>
           </div>
+
         </div>
       </div>
     </AuthenticatedLayout>

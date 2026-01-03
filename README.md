@@ -11,4 +11,6 @@ To run this web app, run the following commands via cmd:
 
 composer update <br/>
 npm update <br/>
-php artisan migrate:fresh
+npm install <br/>
+php artisan migrate:fresh  <br/>
+npm run dev

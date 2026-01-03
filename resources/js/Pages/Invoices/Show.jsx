@@ -55,7 +55,7 @@ export default function Show() {
       {/* Header */}
       <div className="flex justify-between items-center mb-6 no-print">
         <h1 className="text-3xl font-bold text-indigo-700">
-          Invoice #{invoice.invoice_number}
+          Invoice #{invoice.invoice_number}-
         </h1>
 
         <div className="flex gap-2">

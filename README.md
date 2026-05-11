@@ -7,10 +7,24 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-To run this web app, run the following commands via cmd:
+When in your Laravel Herd folder via CMD/terminal, locate your project directory: 
+cd Julius-Invoicing-App
+composer install <br/>
 
-composer update <br/>
-npm update <br/>
-npm install <br/>
-php artisan migrate:fresh  <br/>
-npm run dev
+Rename the .env.example to .env or just create a .env file & copy & paste all the contents from .env.example into in.
+
+Via CMD run the following commands when inside your project directory: <br/>
+
+rmdir /s /q node_modules<br/>
+del package-lock.json <br/>
+npm cache clean --force <br/>
+npm install --force <br/>
+npm install --save-dev vite@7.0.7 @tailwindcss/vite@4.3.0 laravel-vite-plugin@2.0.0 <br/>
+
+In Laravel Herd's Node version: Only choose Node version 20 since it has Long Term Support (LTS). Other Node versions may experience issues or even fail to work especially Node versions without LTS among the supported Node versions in Laravel Herd. <br/>
+
+Via CMD/terminal run: <br/>
+
+php artisan key:generate <br/>
+php artisan migrate:fresh <br/>
+npm run dev <br/>

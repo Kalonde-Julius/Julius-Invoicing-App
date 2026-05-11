@@ -7,11 +7,11 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-When in your Laravel Herd folder via CMD/terminal, locate your project directory: 
-cd Julius-Invoicing-App
+When in your Laravel Herd folder via CMD/terminal, locate your project directory: <br/> 
+cd Julius-Invoicing-App <br/>
 composer install <br/>
 
-Rename the .env.example to .env or just create a .env file & copy & paste all the contents from .env.example into in.
+Rename the .env.example to .env or just create a .env file & copy & paste all the contents from .env.example into in. <br/>
 
 Via CMD run the following commands when inside your project directory: <br/>
 

@@ -23,7 +23,7 @@ npm install --save-dev vite@7.0.7 @tailwindcss/vite@4.3.0 laravel-vite-plugin@2.
 
 In Laravel Herd's Node version: Only choose Node version 20 since it has Long Term Support (LTS). Other Node versions may experience issues or even fail to work especially Node versions without LTS among the supported Node versions in Laravel Herd. <br/>
 
-Via CMD/terminal run: <br/>
+Via CMD run the following commands when inside your project directory: <br/>
 
 php artisan key:generate <br/>
 php artisan migrate:fresh <br/>
